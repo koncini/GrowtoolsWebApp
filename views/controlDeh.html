@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<!-- AWP_In_Variable Name='"Activar_Deshidratador1"' -->
+<!-- AWP_In_Variable Name='"Activar_Deshidratador2"' -->
+<!-- AWP_In_Variable Name='"Activar_Deshidratador3"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador1"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador2"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador3"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D1"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D2"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D3"' -->
+<!-- AWP_In_Variable Name='"Tiempo_Histeresis_D1"' -->
+<!-- AWP_In_Variable Name='"Tiempo_Histeresis_D2"' -->
+<!-- AWP_In_Variable Name='"Tiempo_Histeresis_D3"' -->
+<!-- AWP_In_Variable Name='"Deshidratadores"' -->
+<html lang="esp">
+	
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="css/navStyle.css">
+		<link rel="stylesheet" href="css/control.css">
+		<script src="js/navScript.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/controlDeh.js"></script>
+		<script src="https://kit.fontawesome.com/b3ab30c678.js" crossorigin="anonymous"></script>
+		<script>
+			if (getUserName() != "Admin") {
+				location.href='/awp/ServidorGrowtools/views/login.html';
+			}
+		</script>
+
+		<title>Control Deshidratadores Growtools</title>
+
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-custom">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/awp/ServidorGrowtools/views/index.html">
+						<img id="logo-img" src="img/logo.png">
+					</a>
+					<button type="button" class="btn btn-danger navbar-btn navbar-right"><a href="/FormLogin?LOGOUT">SALIR</a></button>            
+				</div>
+			</div>
+		</nav>
+
+		<div id="wrapper">
+			<div class="overlay"></div>
+		
+			<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+				<ul class="nav sidebar-nav">
+					<li class="sidebar-brand">
+						<a href="/awp/ServidorGrowtools/views/controlDeh.html">
+						   <img id="logo-img" src="img/logo.png" width="150" height="70">
+						</a>
+					</li>
+					<li class="dropdown-main">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuarentena <span class="caret"></span></a>
+					  <ul class="dropdown-menu" role="menu">
+						<li><a href="/awp/ServidorGrowtools/views/accessQuar.html">Control Ingreso</a></li>
+						<li><a href="/awp/ServidorGrowtools/views/dashboardQuar.html">Control Ambiente</a></li>
+					  </ul>
+					</li>
+					<li class="dropdown-main">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deshidratación <span class="caret"></span></a>
+					  <ul class="dropdown-menu" role="menu">
+						<li><a href="/awp/ServidorGrowtools/views/accessDeh.html">Control Ingreso</a></li>
+						<li><a href="/awp/ServidorGrowtools/views/controlDeh.html">Control Deshidratadores</a></li>
+						<li><a href="/awp/ServidorGrowtools/views/dashboardDeh.html">Control Ambiente</a></li>
+					  </ul>
+					</li>
+					<li class="dropdown-main">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transformación <span class="caret"></span></a>
+					  <ul class="dropdown-menu" role="menu">
+						<li><a href="/awp/ServidorGrowtools/views/accessTrans.html">Control Ingreso</a></li>
+						<li><a href="/awp/ServidorGrowtools/views/securitySystem.html">Sistema de Seguridad</a></li>
+						<li><a href="/awp/ServidorGrowtools/views/enableOperation.html">Habilitación de Operacion</a></li>
+					  </ul>
+					</li>                
+					
+				</ul>
+			</nav>
+		
+			<div id="page-content-wrapper">
+				<button type="button" class="btn btn-lg custom-btn" data-toggle="offcanvas">
+					Areas  <i class="fa fa-bars"></i>
+				</button>
+			</div>
+
+		</div>
+
+		<div class="container">
+			<br>
+			<div class="containerHr">
+
+				<h1>Control Operación</h1>
+				<div style="display: flex; gap: 3px;">
+					<input class="btn btn-success" type="button" id="buttonActDeshidratadores" value="Iniciar" coilValue="1" onmousedown="activarDeshidratadores('../IOStartDeh.html','buttonActDeshidratadores')" />
+
+					<input class="btn btn-warning" type="button" id="buttonPausaDeshidratadores" value="Pausar" coilValue="1" onmousedown="pausarDeshidratadores('../IOPauseDeh.html','buttonPausaDeshidratadores')" />
+
+					<input class="btn btn-danger" type="button" id="buttonDeactDeshidratadores" value="Detener" coilValue="1" onmousedown="detenerDeshidratadores('../IOStopDeh.html','buttonDeactDeshidratadores')" />
+				</div>
+			</div>
+				<div>
+					<h4>Estado Deshidratadores:
+						<span id="estadoDeshidratadores" name="estadoDeshidratadores" style="float:right"></span>
+					</h4>   
+				</div>
+			<br>
+
+			<div class="d-flex flex-row">
+				<div class="panel-group">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h2>Control Deshidratador 1</h2></div>						
+						<div class="panel-body">
+							<div style="display: flex; gap: 1px;">
+								<div class="p-2">
+									<input class="btn btn-success" type="button" id="buttonActDeshidratador1" value="Activar" coilValue="1" onmousedown="activarDeshidratador1('../IOD1Status.html','buttonActDeshidratador1')" />
+								</div>
+								<div class="p-2">
+									<input class="btn btn-danger" type="button" id="buttonDeactDeshidratador1" value="Detener" coilValue="0" onmousedown="desactivarDeshidratador1('../IOD1Status.html','buttonDeactDeshidratador1')" />
+								</div>
+								<div class="ml-auto p-2">
+									<input class="btn btn-warning" type="button" onclick="location.href='/awp/ServidorGrowtools/views/dashboardHumD1.html';" value="Ver grafica" />
+								</div>	
+								<div style="margin-left: auto;" class="ml-auto p-2">
+									<input  class="btn btn-secondary" type="button" onclick="location.href='';" value="Presets" />
+								</div>															
+							</div>							
+						</div>
+						<div class="panel-heading">
+							<h4>Estado Deshidratador 1: 
+								<span id="estadoDeshidratador1" name="estadoDeshidratador1" style="float:right"></span>
+							</h4>
+						</div>
+						<div class="panel-body">
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Temperatura Definitiva (C°):
+										<span id="temperaturaDeshidratador1" name="temperaturaDeshidratador1"></span>    	
+									</h4>
+									<input id="setTempD1", type="text" class="form-control" name='"Set_Point_Deshidratador1"'/>
+									<br>
+									<button type="submit" class="btn btn-warning" onclick="cargarSetPointTempD1('../IOTempD1Status.html')">Cargar</button>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Definitiva (%):
+										<span id="humedadDeshidratador1" name="humedadDeshidratador1"></span>    	
+									</h4>
+									<input id="setHumD1", type="text" class="form-control" name='"Set_Point_Humedad_D1"'/>
+									<br>
+									<button type="submit" class="btn btn-warning" onclick="cargarSetPointHumD1('../IOHumD1Status.html')">Cargar</button>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Tiempo Histeresis (min):
+										<span id="hystDeshidratador1" name="hystDeshidratador1"></span>    	
+									</h4>
+									<input id="setHystD1", type="text" class="form-control" name='"Set_Hysteresis_D1"'/>
+									<br>
+									<button type="submit" class="btn btn-warning" onclick="cargarHystD1('../IOD1HystStatus.html')">Cargar</button>
+								</div>
+							</div>							
+						</div>
+						<div class="panel-heading"><h4>Presets</h4></div>
+						<div class="panel-body">
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Temperatura Inicial (°C):
+										<span id="temperaturaDeshidratador1" name="temperaturaDeshidratador1"></span>    	
+									</h4>
+									<input id="setTempD1", type="text" class="form-control" name='"Set_Point_Deshidratador1"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD1('../IOTempD1Status.html')">Cargar</button>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Inicial (%):
+										<span id="humedadDeshidratador1" name="humedadDeshidratador1"></span>    	
+									</h4>
+									<input id="setHumD1", type="text" class="form-control" name='"Set_Point_Humedad_D1"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD1('../IOHumD1Status.html')">Cargar</button>
+								</div>
+							</div>
+							<hr class="mt-2 mb-3"/>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Temperatura Intermedia (°C):
+										<span id="temperaturaDeshidratador1" name="temperaturaDeshidratador1"></span>    	
+									</h4>
+									<input id="setTempD1", type="text" class="form-control" name='"Set_Point_Deshidratador1"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD1('../IOTempD1Status.html')">Cargar</button>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Intermedia (%):
+										<span id="humedadDeshidratador1" name="humedadDeshidratador1"></span>    	
+									</h4>
+									<input id="setHumD1", type="text" class="form-control" name='"Set_Point_Humedad_D1"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD1('../IOHumD1Status.html')">Cargar</button>
+								</div>
+							</div>
+							<hr class="mt-2 mb-3"/>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Temperatura Final (°C):
+										<span id="temperaturaDeshidratador1" name="temperaturaDeshidratador1"></span>    	
+									</h4>
+									<input id="setTempD1", type="text" class="form-control" name='"Set_Point_Deshidratador1"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD1('../IOTempD1Status.html')">Cargar</button>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Final (%):
+										<span id="humedadDeshidratador1" name="humedadDeshidratador1"></span>    	
+									</h4>
+									<input id="setHumD1", type="text" class="form-control" name='"Set_Point_Humedad_D1"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD1('../IOHumD1Status.html')">Cargar</button>
+								</div>
+							</div>							
+						</div>									
+					</div>
+					
+					<div class="panel panel-default">
+						<div class="panel-heading"><h2>Control Deshidratador 2</h2></div>
+						<div class="panel-body">
+							<div style="display: flex; gap: 1px">
+								<div class="p-2">
+									<input class="btn btn-success" type="button" id="buttonActDeshidratador2" value="Activar" coilValue="1" onmousedown="activarDeshidratador2('../IOD2Status.html','buttonActDeshidratador2')" />
+								</div>
+								<div class="p-2">
+									<input class="btn btn-danger" type="button" id="buttonDeactDeshidratador2" value="Detener" coilValue="0" onmousedown="desactivarDeshidratador2('../IOD2Status.html','buttonDeactDeshidratador2')" />
+								</div>
+								<div class="ml-auto p-2">
+									<input class="btn btn-warning" type="button" onclick="location.href='/awp/ServidorGrowtools/views/dashboardHumD2.html';" value="Ver grafica" />
+								</div>	
+								<div style="margin-left: auto;" class="ml-auto p-2">
+									<input class="btn btn-secondary" type="button" onclick="location.href='';" value="Presets" />
+								</div>																	
+							</div>							
+						</div>
+						<div class="panel-heading">
+							<h4>Estado Deshidratador 2:
+								<span id="estadoDeshidratador2" name="estadoDeshidratador2" style="float:right"></span>
+							</h4>  
+						</div>
+						<div class="panel-body">
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Temperatura Definitiva (°C):
+										<span id="temperaturaDeshidratador2" name="temperaturaDeshidratador2"></span>    	
+									</h4>
+									<input id="setTempD2", type="text" class="form-control" name='"Set_Point_Deshidratador2"'/>
+									<br>
+									<button type="submit" class="btn btn-warning" onclick="cargarSetPointTempD2('../IOTempD2Status.html')">Cargar</button>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Definitiva (%): 
+										<span id="humedadDeshidratador2" name="humedadDeshidratador2"></span>    	
+									</h4>
+									<input id="setHumD2", type="text" class="form-control" name='"Set_Point_Humedad_D2"'/>
+									<br>
+									<button type="submit" class="btn btn-warning" onclick="cargarSetPointHumD2('../IOHumD2Status.html')">Cargar</button>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Tiempo Histeresis (min):
+										<span id="hystDeshidratador2" name="hystDeshidratador2"></span>    	
+									</h4>
+									<input id="setHystD2", type="text" class="form-control" name='"Set_Hysteresis_D2"'/>
+									<br>
+									<button type="submit" class="btn btn-warning" onclick="cargarHystD2('../IOD2HystStatus.html')">Cargar</button>
+								</div>
+							</div>
+						</div>
+						<div class="panel-heading"><h4>Presets</h4></div>
+						<div class="panel-body">
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Temperatura Inicial (°C):
+										<span id="temperaturaDeshidratador2" name="temperaturaDeshidratador2"></span>    	
+									</h4>
+									<input id="setTempD2", type="text" class="form-control" name='"Set_Point_Deshidratador2"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD2('../IOTempD2Status.html')">Cargar</button>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Inicial (%): 
+										<span id="humedadDeshidratador2" name="humedadDeshidratador2"></span>    	
+									</h4>
+									<input id="setHumD2", type="text" class="form-control" name='"Set_Point_Humedad_D2"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD2('../IOHumD2Status.html')">Cargar</button>
+								</div>
+							</div>
+							<hr class="mt-2 mb-3"/>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Temperatura Intermedia (°C):
+										<span id="temperaturaDeshidratador2" name="temperaturaDeshidratador2"></span>    	
+									</h4>
+									<input id="setTempD2", type="text" class="form-control" name='"Set_Point_Deshidratador2"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD2('../IOTempD2Status.html')">Cargar</button>
+								</div>
+							</div>
+
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Intermedia (%): 
+										<span id="humedadDeshidratador2" name="humedadDeshidratador2"></span>    	
+									</h4>
+									<input id="setHumD2", type="text" class="form-control" name='"Set_Point_Humedad_D2"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD2('../IOHumD2Status.html')">Cargar</button>
+								</div>
+							</div>
+							<hr class="mt-2 mb-3"/>
+							<div class="panel-body">
+								<div style="display: flex; ">
+									<br>
+									<h4>Set Point Temperatura Final (°C):
+										<span id="temperaturaDeshidratador2" name="temperaturaDeshidratador2"></span>    	
+									</h4>
+									<input id="setTempD2", type="text" class="form-control" name='"Set_Point_Deshidratador2"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD2('../IOTempD2Status.html')">Cargar</button>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Final (%): 
+										<span id="humedadDeshidratador2" name="humedadDeshidratador2"></span>    	
+									</h4>
+									<input id="setHumD2", type="text" class="form-control" name='"Set_Point_Humedad_D2"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD2('../IOHumD2Status.html')">Cargar</button>
+								</div>
+							</div>
+						</div>	
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading"><h2>Control Deshidratador 3</h2></div>
+						<div class="panel-body">
+							<div style="display: flex; gap: 1px;">
+								<div class="p-2">
+									<input class="btn btn-success" type="button" id="buttonActDeshidratador3" value="Activar" coilValue="1" onmousedown="activarDeshidratador3('../IOD3Status.html','buttonActDeshidratador3')" />
+								</div>
+								<div class="p-2">
+									<input class="btn btn-danger" type="button" id="buttonDeactDeshidratador3" value="Detener" coilValue="0" onmousedown="desactivarDeshidratador3('../IOD3Status.html','buttonDeactDeshidratador3')" />
+								</div>
+								<div class="ml-auto p-2">
+									<input class="btn btn-warning" type="button" onclick="location.href='/awp/ServidorGrowtools/views/dashboardHumD3.html';" value="Ver grafica" />
+								</div>
+								<div style="margin-left: auto;" class="ml-auto p-2">
+									<input class="btn btn-secondary" type="button" onclick="location.href='';" value="Presets" />
+								</div>																		
+							</div>							
+						</div>
+						<div class="panel-heading">
+							<h4>Estado Deshidratador 3:
+								<span id="estadoDeshidratador3" name="estadoDeshidratador3" style="float:right"></span>
+							</h4> 					
+						</div>
+						<div class="panel-body">
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<h4>Set Point Temperatura Definitiva (°C):
+										<span id="temperaturaDeshidratador3" name="temperaturaDeshidratador3"></span>    	
+									</h4>
+									<input id="setTempD3", type="text" class="form-control" name='"Set_Point_Deshidratador3"'/>
+									<br>
+									<button type="submit" class="btn btn-warning" onclick="cargarSetPointTempD3('../IOTempD3Status.html')">Cargar</button>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Definitiva (%):
+										<span id="humedadDeshidratador3" name="humedadDeshidratador3"></span>    	
+									</h4>
+									<input id="setHumD3", type="text" class="form-control" name='"Set_Point_Humedad_D3"'/>
+									<br>
+									<button type="submit" class="btn btn-warning" onclick="cargarSetPointHumD3('../IOHumD3Status.html')">Cargar</button>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Tiempo Histeresis (min):
+										<span id="hystDeshidratador3" name="hystDeshidratador3"></span>    	
+									</h4>
+									<input id="setHystD3", type="text" class="form-control" name='"Set_Hysteresis_D3"'/>
+									<br>
+									<button type="submit" class="btn btn-warning" onclick="cargarHystD3('../IOD3HystStatus.html')">Cargar</button>
+								</div>
+							</div>							
+						</div>
+						<div class="panel-heading"><h4>Presets</h4></div>
+						<div class="panel-body">
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<h4>Set Point Temperatura Inicial (°C):
+										<span id="temperaturaDeshidratador3" name="temperaturaDeshidratador3"></span>    	
+									</h4>
+									<input id="setTempD3", type="text" class="form-control" name='"Set_Point_Deshidratador3"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD3('../IOTempD3Status.html')">Cargar</button>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Inicial (%):
+										<span id="humedadDeshidratador3" name="humedadDeshidratador3"></span>    	
+									</h4>
+									<input id="setHumD3", type="text" class="form-control" name='"Set_Point_Humedad_D3"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD3('../IOHumD3Status.html')">Cargar</button>
+								</div>
+							</div>
+							<hr class="mt-2 mb-3"/>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<h4>Set Point Temperatura Intermedia (°C):
+										<span id="temperaturaDeshidratador3" name="temperaturaDeshidratador3"></span>    	
+									</h4>
+									<input id="setTempD3", type="text" class="form-control" name='"Set_Point_Deshidratador3"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD3('../IOTempD3Status.html')">Cargar</button>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Intermedia (%):
+										<span id="humedadDeshidratador3" name="humedadDeshidratador3"></span>    	
+									</h4>
+									<input id="setHumD3", type="text" class="form-control" name='"Set_Point_Humedad_D3"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD3('../IOHumD3Status.html')">Cargar</button>
+								</div>
+							</div>
+							<hr class="mt-2 mb-3"/>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<h4>Set Point Temperatura Final (°C):
+										<span id="temperaturaDeshidratador3" name="temperaturaDeshidratador3"></span>    	
+									</h4>
+									<input id="setTempD3", type="text" class="form-control" name='"Set_Point_Deshidratador3"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD3('../IOTempD3Status.html')">Cargar</button>
+								</div>
+							</div>
+							<div class="panel-body">
+								<div style="display: flex; gap: 3px;">
+									<br>
+									<h4>Set Point Humedad Final (%):
+										<span id="humedadDeshidratador3" name="humedadDeshidratador3"></span>    	
+									</h4>
+									<input id="setHumD3", type="text" class="form-control" name='"Set_Point_Humedad_D3"'/>
+									<br>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD3('../IOHumD3Status.html')">Cargar</button>
+								</div>	
+							</div>													
+						</div>													
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

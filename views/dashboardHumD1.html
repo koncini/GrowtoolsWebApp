@@ -1,0 +1,202 @@
+<!doctype html>
+
+<html lang="esp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/navStyle.css">
+    <script src="js/navScript.js"></script>
+    <script src="js/login.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="https://kit.fontawesome.com/b3ab30c678.js" crossorigin="anonymous"></script>
+    <script>
+        if (getUserName() != "Admin") {
+            location.href='/awp/ServidorGrowtools/login.html';
+        }
+    </script>
+
+    <title>Growtools</title>
+
+	<script type="text/javascript">
+
+		var abrirLog = function() {
+		  	var win = window.open('https://docs.google.com/spreadsheets/d/1oOV-yOje6pH9Jl-Iihz9tnWyKbRkuKVGQtVBBVxn4G8/edit?usp=sharing', '_blank');
+			if (win) {
+			    //Browser has allowed it to be opened
+			    win.focus();
+			} else {
+			    //Browser has blocked it
+			    alert('Please allow popups for this website');
+			}
+		}
+
+        $(document).ready(function(){
+        	var url = "https://script.google.com/macros/s/AKfycbyunclBEoO2krhBQE2Pdw_GsmY07rxCF-MdExkmcO44m_2dpgQGd828Qih2TX4HZMtE/exec?deh=hum1"
+            $.ajaxSetup({ cache: false }); 
+            setInterval(function() {
+                $.get(url, function(result){
+                	var data = JSON.parse(result);
+                	generateGraph(data[0], data[1], data[2]);
+                });
+            },10000);
+        });
+	</script>
+  </head>
+
+  <body onload="generateGraph()">
+
+    <nav class="navbar navbar-custom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/awp/ServidorGrowtools/index.html">
+                	<img id="logo-img" src="img/logo.png">
+                </a>
+                <button type="button" class="btn btn-danger navbar-btn navbar-right"><a href="/FormLogin?LOGOUT">SALIR</a></button>            
+            </div>
+        </div>
+    </nav>
+
+    <div id="wrapper">
+        <div class="overlay"></div>
+    
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/awp/ServidorGrowtools/index.html">
+                       <img id="logo-img" src="img/logo.png" width="150" height="70">
+                    </a>
+                </li>
+                <li class="dropdown-main">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuarentena <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="/awp/ServidorGrowtools/accessQuar.html">Control Ingreso</a></li>
+                    <li><a href="/awp/ServidorGrowtools/dashboardQuar.html">Control Ambiente</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-main">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deshidratación <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="/awp/ServidorGrowtools/accessDeh.html">Control Ingreso</a></li>
+                    <li><a href="/awp/ServidorGrowtools/controlDeh.html">Control Deshidratadores</a></li>
+                    <li><a href="/awp/ServidorGrowtools/dashboardDeh.html">Control Ambiente</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-main">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transformación <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="/awp/ServidorGrowtools/accessTrans.html">Control Ingreso</a></li>
+                    <li><a href="/awp/ServidorGrowtools/securitySystem.html">Sistema de Seguridad</a></li>
+                    <li><a href="/awp/ServidorGrowtools/enableOperation.html">Habilitación de Operacion</a></li>
+                  </ul>
+                </li>                
+                
+            </ul>
+        </nav>
+    
+        <div id="page-content-wrapper">
+            <button type="button" class="btn btn-lg custom-btn" data-toggle="offcanvas">
+                Areas  <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+    </div>
+	
+	<div class="container">
+		<h2>Humedad Deshidratador 1</h2>
+		<div class="content" id="chartHumD1-div">
+			<div class="content-div">
+				<canvas id="chartHumD1" height="300"> </canvas>
+			</div>
+		</div>
+		<div class="containerHr">
+			<div>
+				<button type="button" class="btn btn-success" onmousedown="abrirLog()">Abrir Log</button>
+			</div>
+			<div>
+				<button type="button" class="btn btn-primary" onclick=window.location.href="/awp/ServidorGrowtools/dashboardTempD1.html">Temperatura</button>
+			</div>
+		</div>
+	</div>
+
+    <script type="text/javascript">
+    	function resizeGraph() {
+    		var chartHumArea = document.getElementById('chartHumD1-div');
+    		var widthToHeight = 4 / 3;
+    		var newWidth = window.innerWidth;
+    		var newHeight = window.innerHeight;
+
+    		var chartHumCanvas = document.getElementById('chartHumD1');
+    		chartHumCanvas.width = newWidth*0.7;
+	    }
+	    window.addEventListener('resize', resizeGraph, false);
+	    window.addEventListener('orientationchange', resizeGraph, false);
+	</script>
+
+	<script>
+	 		
+	  	function generateGraph(DATA, DATB, DATC){
+		  var ctx = document.getElementById('chartHumD1').getContext('2d');
+		  var myLineChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		      datasets: [
+		        {
+		          label: 'Nivel 1',
+		          borderColor: '#0000FF',
+		          data: DATA,
+		          type: 'line',
+		          pointRadius: 0,
+		          fill: false,
+		          lineTension: 0,
+		          borderWidth: 2
+		        },
+		        {
+		          label: 'Nivel 3',
+		          borderColor: '#0080FF',
+		          data: DATB,
+		          type: 'line',
+		          pointRadius: 0,
+		          fill: false,
+		          lineTension: 0,
+		          borderWidth: 2
+		        },
+		        {
+		          label: 'Nivel 6',
+		          borderColor: '#00FFFF',
+		          data: DATC,
+		          type: 'line',
+		          pointRadius: 0,
+		          fill: false,
+		          lineTension: 0,
+		          borderWidth: 2
+		        }
+		       ]
+		    },
+		    options: {
+		      scales: {
+		        xAxes: [{
+		          type: 'time',
+		          scaleLabel: {
+		            display: true,
+		            abelString: 'Hora'
+		          }
+		        }],
+		        yAxes: [{
+		          type: 'linear',
+		          scaleLabel: {
+		            display: true,
+		            labelString: '[%H]'
+		          }
+		        }]
+		      },
+		    }
+		  });
+		}
+	</script>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- AWP_In_Variable Name='"Abrir_Puerta_Laboratorio"' -->
+<html lang="esp">
+	
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	    <script src="js/jquery-3.3.1.min.js"></script>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	    <link rel="stylesheet" href="css/navStyle.css">
+        <link rel="stylesheet" href="css/toggleStyle.css">
+	    <script src="js/navScript.js"></script>
+	    <script src="js/login.js"></script>
+	    <script src="https://kit.fontawesome.com/b3ab30c678.js" crossorigin="anonymous"></script>
+	    <script>
+	        if (getUserName() != "Admin") {
+	            location.href='/awp/ServidorGrowtools/login.html';
+	        }
+	    </script>
+		<title>Control Acceso Transformación</title>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$.ajaxSetup({ cache: false }); 
+				setInterval(function() {
+					$.get("IOLabDoorStatus.html", function(result){
+						if (result === "1"){
+							$('#estadoPuertaLaboratorio').text('cerrada');
+						} else {
+							$('#estadoPuertaLaboratorio').text('abierta');
+						}
+					});
+				},1000);
+			});
+
+			var mouseDown = function(elementId, formId) {
+			  	document.getElementById(elementId).value = "1";
+			  	document.getElementById(formId).submit();
+			}
+
+			var mouseUp = function(elementId, formId) {
+			  	document.getElementById(elementId).value = "0";
+			  	document.getElementById(formId).submit();
+			}
+
+			var handleChange = function(elementId, formId) {
+				var currentValue = document.getElementById(elementId).value;
+				document.getElementById(elementId).value = (currentValue === "0") ? (currentValue = "1") : (currentValue = "0");
+				document.getElementById(formId).submit();
+			}
+		</script>
+	</head>
+
+	<body>
+	    <nav class="navbar navbar-custom">
+	        <div class="container-fluid">
+	            <div class="navbar-header">
+	                <a class="navbar-brand" href="/awp/ServidorGrowtools/index.html">
+                    	<img id="logo-img" src="img/logo.png">	                
+                    </a>
+	                <button type="button" class="btn btn-danger navbar-btn navbar-right"><a href="/FormLogin?LOGOUT">SALIR</a></button>            
+	            </div>
+	        </div>
+	    </nav>
+
+	    <div id="wrapper">
+	        <div class="overlay"></div>
+	    
+	        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+	            <ul class="nav sidebar-nav">
+	                <li class="sidebar-brand">
+	                    <a href="/awp/ServidorGrowtools/index.html">
+	                       <img id="logo-img" src="img/logo.png" width="150" height="70">
+	                    </a>
+	                </li>
+	                <li class="dropdown-main">
+	                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuarentena <span class="caret"></span></a>
+	                  <ul class="dropdown-menu" role="menu">
+	                    <li><a href="/awp/ServidorGrowtools/accessQuar.html">Control Ingreso</a></li>
+	                    <li><a href="/awp/ServidorGrowtools/dashboardQuar.html">Control Ambiente</a></li>
+	                  </ul>
+	                </li>
+	                <li class="dropdown-main">
+	                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deshidratación <span class="caret"></span></a>
+	                  <ul class="dropdown-menu" role="menu">
+	                    <li><a href="/awp/ServidorGrowtools/accessDeh.html">Control Ingreso</a></li>
+	                    <li><a href="/awp/ServidorGrowtools/controlDeh.html">Control Deshidratadores</a></li>
+	                    <li><a href="/awp/ServidorGrowtools/dashboardDeh.html">Control Ambiente</a></li>
+	                  </ul>
+	                </li>
+	                <li class="dropdown-main">
+	                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transformación <span class="caret"></span></a>
+	                  <ul class="dropdown-menu" role="menu">
+	                    <li><a href="/awp/ServidorGrowtools/accessTrans.html">Control Ingreso</a></li>
+	                    <li><a href="/awp/ServidorGrowtools/securitySystem.html">Sistema de Seguridad</a></li>
+	                    <li><a href="/awp/ServidorGrowtools/enableOperation.html">Habilitación de Operacion</a></li>
+	                  </ul>
+	                </li>                
+	                
+	            </ul>
+	        </nav>
+	    
+	        <div id="page-content-wrapper">
+	            <button type="button" class="btn btn-lg custom-btn" data-toggle="offcanvas">
+	                Areas  <i class="fa fa-bars"></i>
+	            </button>
+	        </div>
+
+	    </div>
+
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-heading"><h1>Puerta Transformación</h1></div>
+				<div class="panel-body">
+					<div class="row vertical-align">
+						<div class="col-xs-6">
+							<h3>Abrir</h3>
+						</div>
+
+						<div class="col-xs-6">
+							<div class="switch-button">
+								<!-- Checkbox -->
+							    <input type="checkbox" name="Abrir_Puerta_Laboratorio" id="puertaLaboratorio" class="switch-button__checkbox" onclick="handleChange('variablePuertaLaboratorio','formPuertaLaboratorio')">
+							    <!-- Botón -->
+							    <label for="puertaLaboratorio" class="switch-button__label"></label>
+							</div>
+							<form id="formPuertaLaboratorio" onsubmit="return false">
+								<input id="variablePuertaLaboratorio" type="hidden" name='"Abrir_Puerta_Laboratorio"' value="0">
+							</form>
+						</div>
+					</div>
+					
+					<div>
+						<h4>Estado Puerta:
+							<span id="estadoPuertaLaboratorio" name="estadoPuertaLaboratorio" style="float:right"></span>
+						</h4>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
