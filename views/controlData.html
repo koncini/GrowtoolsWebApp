@@ -1,0 +1,176 @@
+<!doctype html>
+
+<html lang="esp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/navStyle.css">
+    <link rel="stylesheet" href="css/controlStyle.css">
+    <script src="js/navScript.js"></script>
+    <script src="js/login.js"></script>
+    <script src="https://kit.fontawesome.com/b3ab30c678.js" crossorigin="anonymous"></script>
+    <script>
+        if (getUserName() != "Admin") {
+            location.href='/awp/ServidorDeshidratador/login.html';
+        }
+    </script>
+	<script type="text/javascript" src="js/smoothie2.js"></script>
+    <script src="js/blockchainManagement.js"></script>
+
+    <title>Growtools</title>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-custom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/awp/ServidorDeshidratador/index.html">
+                    <img id="logo-img" src="img/logo.png">
+                </a>
+                <button type="button" class="btn btn-danger navbar-btn navbar-right"><a href="/FormLogin?LOGOUT">SALIR</a></button>            
+            </div>
+        </div>
+    </nav>
+
+    <div id="wrapper">
+        <div class="overlay"></div>
+    
+            <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+                <ul class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="/awp/ServidorGrowtools/views/controlDeh.html">
+                           <img id="logo-img" src="img/logo.png" width="150" height="70">
+                        </a>
+                    </li>
+<!--                    <li class="dropdown-main">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuarentena <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="/awp/ServidorGrowtools/views/accessQuar.html">Control Ingreso</a></li>
+                        <li><a href="/awp/ServidorGrowtools/views/dashboardQuar.html">Control Ambiente</a></li>
+                      </ul>
+                    </li> -->
+                    <li class="dropdown-main">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deshidratación <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <!-- <li><a href="/awp/ServidorGrowtools/views/accessDeh.html">Control Ingreso</a></li> -->
+                        <li><a href="/awp/ServidorGrowtools/views/controlDeh.html">Control Deshidratadores</a></li>
+                        <li><a href="/awp/ServidorGrowtools/views/dashboardDeh.html">Control Ambiente</a></li>
+                      </ul>
+                    </li>
+<!--                    <li class="dropdown-main">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transformación <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="/awp/ServidorGrowtools/views/accessTrans.html">Control Ingreso</a></li>
+                        <li><a href="/awp/ServidorGrowtools/views/securitySystem.html">Sistema de Seguridad</a></li>
+                        <li><a href="/awp/ServidorGrowtools/views/enableOperation.html">Habilitación de Operacion</a></li>
+                      </ul>
+                    </li> -->
+                    <li class="dropdown-main">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blockchain <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="/awp/ServidorGrowtools/views/controlData.html">Control Datos</a></li>
+                      </ul>
+                    </li>                
+                </ul>
+            </nav>
+    
+        <div id="page-content-wrapper">
+            <button type="button" class="btn btn-lg custom-btn" data-toggle="offcanvas">
+                Acciones  <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class = "container">
+        <br>
+        <div class="containerHr">
+
+            <h1>Integridad de Datos</h1>
+            <div class="containerHr">
+                <button id="mine_block" type="button" class="btn btn-success">Minar Bloque</button>
+                <br>
+                <button id="is_valid" type="button" class="btn btn-success">Validar Blockchain</button>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading"><h1>Consultar Datos</h1></div>
+            <div class="panel-body">
+                <form name="table_s" id="table_s">
+                <div class="table-responsive">
+                    <table class="table table-striped" id="table_s">
+                        <thead class="thead-dark">
+
+                          <tr>
+                            <th><center>Timestamp</center></th>
+                            <th><center>Temperatura Deshidratación</center></th>
+                            <th><center>Humedad Deshidratación</center></th>
+                            <th><center>Temperatura Cuarentena</center></th>
+                            <th><center>Humedad Cuarentena</center></th>
+                          </tr>
+
+                        </thead>
+                        <tbody>
+                          <tr>
+
+                          <tr>
+                            <td id="td_s0"></td>
+                            <td id="td_s1"></td>
+                            <td id="td_s2"></td>
+                            <td id="td_s3"></td>
+                            <td id="td_s4"></td>
+
+                          </tr>
+
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="containerHr">
+                    <input type="button" value="Obtener Datos por Blockchain" id="get_blockchain" class="btn btn-success"/>
+                    <div class="form-group">
+                      <label class="control-label col-sm-4" for="variables">Variables</label>
+                      <div class="col-sm-9 col-md-7">
+                        <select id="variables" class="form-control" onchange="cambiarTabla()">
+                          <option>Variables Habitaciones</option>
+                          <option>Temperatura Deshidratadores</option>
+                          <option>Humedad Material</option>
+                        </select>
+                        <input type="hidden" name="cms-form"/> 
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+      <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+            
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Aviso</h4>
+                </div>
+                <div class="modal-body">
+                  <p id="error"></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+    </div>
+  </body>
+</html>

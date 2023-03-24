@@ -22,7 +22,6 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="css/navStyle.css">
-		<link rel="stylesheet" href="css/control.css">
 		<script src="js/navScript.js"></script>
 		<script src="js/login.js"></script>
 		<script src="js/controlDeh.js"></script>
@@ -60,36 +59,41 @@
 						   <img id="logo-img" src="img/logo.png" width="150" height="70">
 						</a>
 					</li>
-					<li class="dropdown-main">
+<!-- 					<li class="dropdown-main">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuarentena <span class="caret"></span></a>
 					  <ul class="dropdown-menu" role="menu">
 						<li><a href="/awp/ServidorGrowtools/views/accessQuar.html">Control Ingreso</a></li>
 						<li><a href="/awp/ServidorGrowtools/views/dashboardQuar.html">Control Ambiente</a></li>
 					  </ul>
-					</li>
+					</li> -->
 					<li class="dropdown-main">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deshidratación <span class="caret"></span></a>
 					  <ul class="dropdown-menu" role="menu">
-						<li><a href="/awp/ServidorGrowtools/views/accessDeh.html">Control Ingreso</a></li>
+						<!-- <li><a href="/awp/ServidorGrowtools/views/accessDeh.html">Control Ingreso</a></li> -->
 						<li><a href="/awp/ServidorGrowtools/views/controlDeh.html">Control Deshidratadores</a></li>
 						<li><a href="/awp/ServidorGrowtools/views/dashboardDeh.html">Control Ambiente</a></li>
 					  </ul>
 					</li>
-					<li class="dropdown-main">
+<!-- 					<li class="dropdown-main">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transformación <span class="caret"></span></a>
 					  <ul class="dropdown-menu" role="menu">
 						<li><a href="/awp/ServidorGrowtools/views/accessTrans.html">Control Ingreso</a></li>
 						<li><a href="/awp/ServidorGrowtools/views/securitySystem.html">Sistema de Seguridad</a></li>
 						<li><a href="/awp/ServidorGrowtools/views/enableOperation.html">Habilitación de Operacion</a></li>
 					  </ul>
+					</li> -->
+					<li class="dropdown-main">
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blockchain <span class="caret"></span></a>
+					  <ul class="dropdown-menu" role="menu">
+						<li><a href="/awp/ServidorGrowtools/views/controlData.html">Control Datos</a></li>
+					  </ul>
 					</li>                
-					
 				</ul>
 			</nav>
 		
 			<div id="page-content-wrapper">
 				<button type="button" class="btn btn-lg custom-btn" data-toggle="offcanvas">
-					Areas  <i class="fa fa-bars"></i>
+					Acciones  <i class="fa fa-bars"></i>
 				</button>
 			</div>
 
@@ -362,7 +366,7 @@
 							</div>
 							<hr class="mt-2 mb-3"/>
 							<div class="panel-body">
-								<div style="display: flex; ">
+								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Temperatura Final (°C):
 										<span id="temperaturaDeshidratador2" name="temperaturaDeshidratador2"></span>    	
