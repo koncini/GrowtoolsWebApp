@@ -11,42 +11,18 @@
     <link rel="stylesheet" href="css/navStyle.css">
     <script src="js/navScript.js"></script>
     <script src="js/login.js"></script>
+   	<script src="js/dashboardTempD1.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <script src="https://kit.fontawesome.com/b3ab30c678.js" crossorigin="anonymous"></script>
     <script>
         if (getUserName() != "Admin") {
-            location.href='/awp/ServidorGrowtools/login.html';
+            location.href='/awp/ServidorGrowtools/views/login.html';
         }
     </script>
 
     <title>Growtools</title>
 
-	<script type="text/javascript">
-
-		var abrirLog = function() {
-		  	var win = window.open('https://docs.google.com/spreadsheets/d/1dM2E6egfzHq52BsvH8IEzCmZjI_3IuWLIqhbqVnmHLI/edit?usp=sharing', '_blank');
-			if (win) {
-			    //Browser has allowed it to be opened
-			    win.focus();
-			} else {
-			    //Browser has blocked it
-			    alert('Please allow popups for this website');
-			}
-		}
-
-        $(document).ready(function(){
-        	var url = "https://script.google.com/macros/s/AKfycbyp0E16bZP6V6m_4nfbb_hSeFJhsZfoKZGCRnE7CwmbTnO3psVy4Rrrv8Hh1zBLb3fq9Q/exec?deh=temp1";
-            $.ajaxSetup({ cache: false }); 
-            setInterval(function() {
-                $.get(url, function(result){
-                	var data = JSON.parse(result);
-                	generateGraph(data);
-                });
-            },10000);
-        });
-
-	</script>
   </head>
 
   <body onload="generateGraph()">
@@ -54,7 +30,7 @@
     <nav class="navbar navbar-custom">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/awp/ServidorGrowtools/index.html">
+                <a class="navbar-brand" href="/awp/ServidorGrowtools/views/controlDeh.html">
                     <img id="logo-img" src="img/logo.png">
                 </a>
                 <button type="button" class="btn btn-danger navbar-btn navbar-right"><a href="/FormLogin?LOGOUT">SALIR</a></button>            
@@ -119,55 +95,14 @@
 				<canvas id="chartTempD1" height="300"> </canvas>
 			</div>
 		</div>
-		<div class="containerHr">
+		<div style="display: flex; gap: 1px;">
 			<div>
 				<button type="button" class="btn btn-success" onmousedown="abrirLog()">Abrir Log</button>
 			</div>
 			<div>
-				<button type="button" class="btn btn-primary" onclick=window.location.href="/awp/ServidorGrowtools/dashboardHumD1.html">Humedad</button>
+				<button type="button" class="btn btn-primary" onclick=window.location.href="/awp/ServidorGrowtools/views/dashboardHumD1.html">Humedad</button>
 			</div>
 		</div>
 	</div>
-
-	<script>
-		function generateGraph(DATA){
-		  var ctx = document.getElementById('chartTempD1').getContext('2d');
-		  var myLineChart = new Chart(ctx, {
-		    type: 'line',
-		    data: {
-		      datasets: [
-		        {
-		          label: 'Temperatura',
-		          borderColor: '#FF0000',
-		          data: DATA,
-		          type: 'line',
-		          pointRadius: 0,
-		          fill: false,
-		          lineTension: 0,
-		          borderWidth: 2
-		        }
-		       ]
-		    },
-		    options: {
-		      scales: {
-		        xAxes: [{
-		          type: 'time',
-		          scaleLabel: {
-		            display: true,
-		            abelString: 'Hora'
-		          }
-		        }],
-		        yAxes: [{
-		          type: 'linear',
-		          scaleLabel: {
-		            display: true,
-		            labelString: '[°C]'
-		          }
-		        }]
-		      },
-		    }
-		  });
-		}
-	</script>
   </body>
 </html>
