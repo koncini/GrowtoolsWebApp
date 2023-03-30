@@ -54,8 +54,62 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$.ajaxSetup({ cache: false }); 
 	setInterval(function() {
+		$.get("../IOTempD1InitStatus.html", function(result){
+			$('#temperaturaInicialDeshidratador1').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOTempD1MidStatus.html", function(result){
+			$('#temperaturaIntermediaDeshidratador1').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOTempD1FinalStatus.html", function(result){
+			$('#temperaturaFinalDeshidratador1').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
 		$.get("../IOTempD1Status.html", function(result){
 			$('#temperaturaDeshidratador1').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOTempD2InitStatus.html", function(result){
+			$('#temperaturaInicialDeshidratador2').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOTempD2MidStatus.html", function(result){
+			$('#temperaturaIntermediaDeshidratador2').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOTempD2FinalStatus.html", function(result){
+			$('#temperaturaFinalDeshidratador2').text(result);
 		});
 	},1000);
 });
@@ -72,8 +126,62 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$.ajaxSetup({ cache: false }); 
 	setInterval(function() {
+		$.get("../IOTempD3InitStatus.html", function(result){
+			$('#temperaturaInicialDeshidratador3').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOTempD3MidStatus.html", function(result){
+			$('#temperaturaIntermediaDeshidratador3').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOTempD3FinalStatus.html", function(result){
+			$('#temperaturaFinalDeshidratador3').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
 		$.get("../IOTempD3Status.html", function(result){
 			$('#temperaturaDeshidratador3').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOHumD1InitStatus.html", function(result){
+			$('#humedadInicialDeshidratador1').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOHumD1MidStatus.html", function(result){
+			$('#humedadIntermediaDeshidratador1').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOHumD1FinalStatus.html", function(result){
+			$('#humedadFinalDeshidratador1').text(result);
 		});
 	},1000);
 });
@@ -90,8 +198,62 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$.ajaxSetup({ cache: false }); 
 	setInterval(function() {
+		$.get("../IOHumD2InitStatus.html", function(result){
+			$('#humedadInicialDeshidratador2').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOHumD2MidStatus.html", function(result){
+			$('#humedadIntermediaDeshidratador2').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOHumD2FinalStatus.html", function(result){
+			$('#humedadFinalDeshidratador2').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
 		$.get("../IOHumD2Status.html", function(result){
 			$('#humedadDeshidratador2').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOHumD3InitStatus.html", function(result){
+			$('#humedadInicialDeshidratador3').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOHumD3MidStatus.html", function(result){
+			$('#humedadIntermediaDeshidratador3').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOHumD3FinalStatus.html", function(result){
+			$('#humedadFinalDeshidratador3').text(result);
 		});
 	},1000);
 });
@@ -207,9 +369,51 @@ var cargarSetPointHumD1 = function(url) {
 	$.post(url,sdata,function(result){});
 }
 
+var cargarSetPointHumInitD1 = function(url) {
+	name='"Set_Point_Humedad_D1_Inicial"';
+	val=$('input[id=setHumD1Init]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointHumMidD1 = function(url) {
+	name='"Set_Point_Humedad_D1_Intermedia"';
+	val=$('input[id=setHumD1Mid]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointFinalD1 = function(url) {
+	name='"Set_Point_Humedad_D1_Final"';
+	val=$('input[id=setHumD1Final]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
 var cargarSetPointHumD2 = function(url) {
 	name='"Set_Point_Humedad_D2"';
 	val=$('input[id=setHumD2]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointHumInitD2 = function(url) {
+	name='"Set_Point_Humedad_D2_Inicial"';
+	val=$('input[id=setHumD2Init]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointHumMidD2 = function(url) {
+	name='"Set_Point_Humedad_D2_Intermedia"';
+	val=$('input[id=setHumD2Mid]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointFinalD2 = function(url) {
+	name='"Set_Point_Humedad_D2_Final"';
+	val=$('input[id=setHumD2Final]').val();
 	sdata=escape(name)+'='+val;
 	$.post(url,sdata,function(result){});
 }
@@ -221,9 +425,51 @@ var cargarSetPointHumD3 = function(url) {
 	$.post(url,sdata,function(result){});
 }
 
+var cargarSetPointHumInitD3 = function(url) {
+	name='"Set_Point_Humedad_D3_Inicial"';
+	val=$('input[id=setHumD3Init]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointHumMidD3 = function(url) {
+	name='"Set_Point_Humedad_D3_Intermedia"';
+	val=$('input[id=setHumD3Mid]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointFinalD3 = function(url) {
+	name='"Set_Point_Humedad_D3_Final"';
+	val=$('input[id=setHumD3Final]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
 var cargarSetPointTempD1 = function(url) {
 	name='"Set_Point_Deshidratador1"';
 	val=$('input[id=setTempD1]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointTempInitD1 = function(url) {
+	name='"Set_Point_Deshidratador1_Inicial"';
+	val=$('input[id=setTempD1Init]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointTempMidD1 = function(url) {
+	name='"Set_Point_Deshidratador1_Intermedia"';
+	val=$('input[id=setTempD1Mid]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointTempFinalD1 = function(url) {
+	name='"Set_Point_Deshidratador1_Final"';
+	val=$('input[id=setTempD1Final]').val();
 	sdata=escape(name)+'='+val;
 	$.post(url,sdata,function(result){});
 }
@@ -235,9 +481,51 @@ var cargarSetPointTempD2 = function(url) {
 	$.post(url,sdata,function(result){});
 }
 
+var cargarSetPointTempInitD2 = function(url) {
+	name='"Set_Point_Deshidratador2_Inicial"';
+	val=$('input[id=setTempD2Init]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointTempMidD2 = function(url) {
+	name='"Set_Point_Deshidratador2_Intermedia"';
+	val=$('input[id=setTempD2Mid]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointTempFinalD2 = function(url) {
+	name='"Set_Point_Deshidratador2_Final"';
+	val=$('input[id=setTempD2Final]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
 var cargarSetPointTempD3 = function(url) {
 	name='"Set_Point_Deshidratador3"';
 	val=$('input[id=setTempD3]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointTempInitD3 = function(url) {
+	name='"Set_Point_Deshidratador3_Inicial"';
+	val=$('input[id=setTempD3Init]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointTempMidD3 = function(url) {
+	name='"Set_Point_Deshidratador3_Intermedia"';
+	val=$('input[id=setTempD3Mid]').val();
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cargarSetPointTempFinalD3 = function(url) {
+	name='"Set_Point_Deshidratador3_Final"';
+	val=$('input[id=setTempD3Final]').val();
 	sdata=escape(name)+'='+val;
 	$.post(url,sdata,function(result){});
 }

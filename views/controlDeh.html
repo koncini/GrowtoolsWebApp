@@ -5,9 +5,27 @@
 <!-- AWP_In_Variable Name='"Set_Point_Deshidratador1"' -->
 <!-- AWP_In_Variable Name='"Set_Point_Deshidratador2"' -->
 <!-- AWP_In_Variable Name='"Set_Point_Deshidratador3"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador1_Inicial"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador2_Inicial"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador3_Inicial"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador1_Intermedia"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador2_Intermedia"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador3_Intermedia"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador1_Final"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador2_Final"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Deshidratador3_Final"' -->
 <!-- AWP_In_Variable Name='"Set_Point_Humedad_D1"' -->
 <!-- AWP_In_Variable Name='"Set_Point_Humedad_D2"' -->
 <!-- AWP_In_Variable Name='"Set_Point_Humedad_D3"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D1_Inicial"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D2_Inicial"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D3_Inicial"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D1_Intermedia"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D2_Intermedia"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D3_Intermedia"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D1_Final"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D2_Final"' -->
+<!-- AWP_In_Variable Name='"Set_Point_Humedad_D3_Final"' -->
 <!-- AWP_In_Variable Name='"Tiempo_Histeresis_D1"' -->
 <!-- AWP_In_Variable Name='"Tiempo_Histeresis_D2"' -->
 <!-- AWP_In_Variable Name='"Tiempo_Histeresis_D3"' -->
@@ -187,11 +205,11 @@
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Temperatura Inicial (°C):
-										<span id="temperaturaDeshidratador1" name="temperaturaDeshidratador1"></span>    	
+										<span id="temperaturaInicialDeshidratador1" name="temperaturaInicialDeshidratador1"></span>    	
 									</h4>
-									<input id="setTempD1", type="text" class="form-control" name='"Set_Point_Deshidratador1"'/>
+									<input id="setTempD1Init", type="text" class="form-control" name='"Set_Point_Deshidratador1_Inicial"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD1('../IOTempD1Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempInitD1('../IOTempD1InitStatus.html')">Cargar</button>
 								</div>
 							</div>
 
@@ -199,11 +217,11 @@
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Humedad Inicial (%):
-										<span id="humedadDeshidratador1" name="humedadDeshidratador1"></span>    	
+										<span id="humedadInicialDeshidratador1" name="humedadInicialDeshidratador1"></span>    
 									</h4>
-									<input id="setHumD1", type="text" class="form-control" name='"Set_Point_Humedad_D1"'/>
+									<input id="setHumD1Init", type="text" class="form-control" name='"Set_Point_Humedad_D1_Inicial"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD1('../IOHumD1Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumInitD1('../IOHumD1InitStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<hr class="mt-2 mb-3"/>
@@ -211,22 +229,22 @@
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Temperatura Intermedia (°C):
-										<span id="temperaturaDeshidratador1" name="temperaturaDeshidratador1"></span>    	
+										<span id="temperaturaIntermediaDeshidratador1" name="temperaturaIntermediaDeshidratador1"></span>    	
 									</h4>
-									<input id="setTempD1", type="text" class="form-control" name='"Set_Point_Deshidratador1"'/>
+									<input id="setTempD1Mid", type="text" class="form-control" name='"Set_Point_Deshidratador1_Intermedia"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD1('../IOTempD1Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempMidD1('../IOTempD1MidStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<div class="panel-body">
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Humedad Intermedia (%):
-										<span id="humedadDeshidratador1" name="humedadDeshidratador1"></span>    	
+										<span id="humedadIntermediaDeshidratador1" name="humedadIntermediaDeshidratador1"></span>    	
 									</h4>
-									<input id="setHumD1", type="text" class="form-control" name='"Set_Point_Humedad_D1"'/>
+									<input id="setHumD1Mid", type="text" class="form-control" name='"Set_Point_Humedad_D1_Intermedia"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD1('../IOHumD1Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumMidD1('../IOHumD1MidStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<hr class="mt-2 mb-3"/>
@@ -234,11 +252,11 @@
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Temperatura Final (°C):
-										<span id="temperaturaDeshidratador1" name="temperaturaDeshidratador1"></span>    	
+										<span id="temperaturaFinalDeshidratador1" name="temperaturaFinalDeshidratador1"></span>
 									</h4>
-									<input id="setTempD1", type="text" class="form-control" name='"Set_Point_Deshidratador1"'/>
+									<input id="setTempD1Final", type="text" class="form-control" name='"Set_Point_Deshidratador1_Final"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD1('../IOTempD1Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempFinalD1('../IOTempD1FinalStatus.html')">Cargar</button>
 								</div>
 							</div>
 
@@ -246,11 +264,11 @@
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Humedad Final (%):
-										<span id="humedadDeshidratador1" name="humedadDeshidratador1"></span>    	
+										<span id="humedadFinalDeshidratador1" name="humedadFinalDeshidratador1"></span>    	
 									</h4>
-									<input id="setHumD1", type="text" class="form-control" name='"Set_Point_Humedad_D1"'/>
+									<input id="setHumD1Final", type="text" class="form-control" name='"Set_Point_Humedad_D1_Final"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD1('../IOHumD1Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumFinalD1('../IOHumD1FinalStatus.html')">Cargar</button>
 								</div>
 							</div>							
 						</div>									
@@ -322,22 +340,22 @@
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Temperatura Inicial (°C):
-										<span id="temperaturaDeshidratador2" name="temperaturaDeshidratador2"></span>    	
+										<span id="temperaturaInicialDeshidratador2" name="temperaturaInicialDeshidratador2"></span>    	
 									</h4>
-									<input id="setTempD2", type="text" class="form-control" name='"Set_Point_Deshidratador2"'/>
+									<input id="setTempD2Init", type="text" class="form-control" name='"Set_Point_Deshidratador2_Inicial"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD2('../IOTempD2Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempInitD2('../IOTempD2InitStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<div class="panel-body">
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Humedad Inicial (%): 
-										<span id="humedadDeshidratador2" name="humedadDeshidratador2"></span>    	
+										<span id="humedadInicialDeshidratador2" name="humedadInicialDeshidratador2"></span>
 									</h4>
-									<input id="setHumD2", type="text" class="form-control" name='"Set_Point_Humedad_D2"'/>
+									<input id="setHumD2Init", type="text" class="form-control" name='"Set_Point_Humedad_D2_Inicial"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD2('../IOHumD2Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumInitD2('../IOHumD2InitStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<hr class="mt-2 mb-3"/>
@@ -345,11 +363,11 @@
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Temperatura Intermedia (°C):
-										<span id="temperaturaDeshidratador2" name="temperaturaDeshidratador2"></span>    	
+										<span id="temperaturaIntermediaDeshidratador2" name="temperaturaIntermediaDeshidratador2"></span>    	
 									</h4>
-									<input id="setTempD2", type="text" class="form-control" name='"Set_Point_Deshidratador2"'/>
+									<input id="setTempD2Mid", type="text" class="form-control" name='"Set_Point_Deshidratador2_Intermedia"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD2('../IOTempD2Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempMidD2('../IOTempD2MidStatus.html')">Cargar</button>
 								</div>
 							</div>
 
@@ -357,11 +375,11 @@
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Humedad Intermedia (%): 
-										<span id="humedadDeshidratador2" name="humedadDeshidratador2"></span>    	
+										<span id="humedadIntermediaDeshidratador2" name="humedadIntermediaDeshidratador2"></span>    	
 									</h4>
-									<input id="setHumD2", type="text" class="form-control" name='"Set_Point_Humedad_D2"'/>
+									<input id="setHumD2Mid", type="text" class="form-control" name='"Set_Point_Humedad_D2_Intermedia"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD2('../IOHumD2Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumMidD2('../IOHumD2MidStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<hr class="mt-2 mb-3"/>
@@ -369,22 +387,22 @@
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Temperatura Final (°C):
-										<span id="temperaturaDeshidratador2" name="temperaturaDeshidratador2"></span>    	
+										<span id="temperaturaFinalDeshidratador2" name="temperaturaFinalDeshidratador2"></span>    	
 									</h4>
-									<input id="setTempD2", type="text" class="form-control" name='"Set_Point_Deshidratador2"'/>
+									<input id="setTempD2Final", type="text" class="form-control" name='"Set_Point_Deshidratador2_Final"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD2('../IOTempD2Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempFinalD2('../IOTempD2FinalStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<div class="panel-body">
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Humedad Final (%): 
-										<span id="humedadDeshidratador2" name="humedadDeshidratador2"></span>    	
+										<span id="humedadFinalDeshidratador2" name="humedadFinalDeshidratador2"></span>    	
 									</h4>
-									<input id="setHumD2", type="text" class="form-control" name='"Set_Point_Humedad_D2"'/>
+									<input id="setHumD2Final", type="text" class="form-control" name='"Set_Point_Humedad_D2_Final"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD2('../IOHumD2Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumFinalD2('../IOHumD2FinalStatus.html')">Cargar</button>
 								</div>
 							</div>
 						</div>	
@@ -452,66 +470,66 @@
 							<div class="panel-body">
 								<div style="display: flex; gap: 3px;">
 									<h4>Set Point Temperatura Inicial (°C):
-										<span id="temperaturaDeshidratador3" name="temperaturaDeshidratador3"></span>    	
+										<span id="temperaturaInicialDeshidratador3" name="temperaturaInicialDeshidratador3"></span>    	
 									</h4>
-									<input id="setTempD3", type="text" class="form-control" name='"Set_Point_Deshidratador3"'/>
+									<input id="setTempD3Init", type="text" class="form-control" name='"Set_Point_Deshidratador3_Inicial"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD3('../IOTempD3Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempInitD3('../IOTempD3InitStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<div class="panel-body">
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Humedad Inicial (%):
-										<span id="humedadDeshidratador3" name="humedadDeshidratador3"></span>    	
+										<span id="humedadInicialDeshidratador3" name="humedadInicialDeshidratador3"></span>    	
 									</h4>
-									<input id="setHumD3", type="text" class="form-control" name='"Set_Point_Humedad_D3"'/>
+									<input id="setHumD3Init", type="text" class="form-control" name='"Set_Point_Humedad_D3_Inicial"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD3('../IOHumD3Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumInitD3('../IOHumD3InitStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<hr class="mt-2 mb-3"/>
 							<div class="panel-body">
 								<div style="display: flex; gap: 3px;">
 									<h4>Set Point Temperatura Intermedia (°C):
-										<span id="temperaturaDeshidratador3" name="temperaturaDeshidratador3"></span>    	
+										<span id="temperaturaIntermediaDeshidratador3" name="temperaturaIntermediaDeshidratador3"></span>    	
 									</h4>
-									<input id="setTempD3", type="text" class="form-control" name='"Set_Point_Deshidratador3"'/>
+									<input id="setTempD3Mid", type="text" class="form-control" name='"Set_Point_Deshidratador3_Intermedia"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD3('../IOTempD3Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempMidD3('../IOTempD3MidStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<div class="panel-body">
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Humedad Intermedia (%):
-										<span id="humedadDeshidratador3" name="humedadDeshidratador3"></span>    	
+										<span id="humedadIntermediaDeshidratador3" name="humedadIntermediaDeshidratador3"></span>    	
 									</h4>
-									<input id="setHumD3", type="text" class="form-control" name='"Set_Point_Humedad_D3"'/>
+									<input id="setHumD3Mid", type="text" class="form-control" name='"Set_Point_Humedad_D3_Intermedia"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD3('../IOHumD3Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumMidD3('../IOHumD3MidStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<hr class="mt-2 mb-3"/>
 							<div class="panel-body">
 								<div style="display: flex; gap: 3px;">
 									<h4>Set Point Temperatura Final (°C):
-										<span id="temperaturaDeshidratador3" name="temperaturaDeshidratador3"></span>    	
+										<span id="temperaturaFinalDeshidratador3" name="temperaturaFinalDeshidratador3"></span>
 									</h4>
-									<input id="setTempD3", type="text" class="form-control" name='"Set_Point_Deshidratador3"'/>
+									<input id="setTempD3Final", type="text" class="form-control" name='"Set_Point_Deshidratador3"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempD3('../IOTempD3Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointTempFinalD3('../IOTempD3FinalStatus.html')">Cargar</button>
 								</div>
 							</div>
 							<div class="panel-body">
 								<div style="display: flex; gap: 3px;">
 									<br>
 									<h4>Set Point Humedad Final (%):
-										<span id="humedadDeshidratador3" name="humedadDeshidratador3"></span>    	
+										<span id="humedadFinalDeshidratador3" name="humedadFinalDeshidratador3"></span>    	
 									</h4>
-									<input id="setHumD3", type="text" class="form-control" name='"Set_Point_Humedad_D3"'/>
+									<input id="setHumD3Final", type="text" class="form-control" name='"Set_Point_Humedad_D3"'/>
 									<br>
-									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumD3('../IOHumD3Status.html')">Cargar</button>
+									<button type="submit" class="btn btn-info" onclick="cargarSetPointHumFinalD3('../IOHumD3FinalStatus.html')">Cargar</button>
 								</div>	
 							</div>													
 						</div>													
