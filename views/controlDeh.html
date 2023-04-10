@@ -30,6 +30,9 @@
 <!-- AWP_In_Variable Name='"Tiempo_Histeresis_D2"' -->
 <!-- AWP_In_Variable Name='"Tiempo_Histeresis_D3"' -->
 <!-- AWP_In_Variable Name='"Deshidratadores"' -->
+<!-- AWP_In_Variable Name='"Modos_Operacion".Modo_Preset_D1' -->
+<!-- AWP_In_Variable Name='"Modos_Operacion".Modo_Preset_D2' -->
+<!-- AWP_In_Variable Name='"Modos_Operacion".Modo_Preset_D3' -->
 <html lang="esp">
 	
 	<head>
@@ -56,66 +59,9 @@
 
 	<body>
 
-		<nav class="navbar navbar-custom">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="/awp/ServidorGrowtools/views/controlDeh.html">
-						<img id="logo-img" src="img/logo.png">
-					</a>
-					<button type="button" class="btn btn-danger navbar-btn navbar-right"><a href="/FormLogin?LOGOUT">SALIR</a></button>            
-				</div>
-			</div>
-		</nav>
+		<!-- AWP_Import_Fragment Name='navBar' -->
 
-		<div id="wrapper">
-			<div class="overlay"></div>
-		
-			<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-				<ul class="nav sidebar-nav">
-					<li class="sidebar-brand">
-						<a href="/awp/ServidorGrowtools/views/controlDeh.html">
-						   <img id="logo-img" src="img/logo.png" width="150" height="70">
-						</a>
-					</li>
-<!-- 					<li class="dropdown-main">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cuarentena <span class="caret"></span></a>
-					  <ul class="dropdown-menu" role="menu">
-						<li><a href="/awp/ServidorGrowtools/views/accessQuar.html">Control Ingreso</a></li>
-						<li><a href="/awp/ServidorGrowtools/views/dashboardQuar.html">Control Ambiente</a></li>
-					  </ul>
-					</li> -->
-					<li class="dropdown-main">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deshidratación <span class="caret"></span></a>
-					  <ul class="dropdown-menu" role="menu">
-						<!-- <li><a href="/awp/ServidorGrowtools/views/accessDeh.html">Control Ingreso</a></li> -->
-						<li><a href="/awp/ServidorGrowtools/views/controlDeh.html">Control Deshidratadores</a></li>
-						<li><a href="/awp/ServidorGrowtools/views/dashboardDeh.html">Control Ambiente</a></li>
-					  </ul>
-					</li>
-<!-- 					<li class="dropdown-main">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transformación <span class="caret"></span></a>
-					  <ul class="dropdown-menu" role="menu">
-						<li><a href="/awp/ServidorGrowtools/views/accessTrans.html">Control Ingreso</a></li>
-						<li><a href="/awp/ServidorGrowtools/views/securitySystem.html">Sistema de Seguridad</a></li>
-						<li><a href="/awp/ServidorGrowtools/views/enableOperation.html">Habilitación de Operacion</a></li>
-					  </ul>
-					</li> -->
-					<li class="dropdown-main">
-					  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blockchain <span class="caret"></span></a>
-					  <ul class="dropdown-menu" role="menu">
-						<li><a href="/awp/ServidorGrowtools/views/controlData.html">Control Datos</a></li>
-					  </ul>
-					</li>                
-				</ul>
-			</nav>
-		
-			<div id="page-content-wrapper">
-				<button type="button" class="btn btn-lg custom-btn" data-toggle="offcanvas">
-					Acciones  <i class="fa fa-bars"></i>
-				</button>
-			</div>
-
-		</div>
+		<!-- AWP_Import_Fragment Name='sideBar' -->
 
 		<div class="container">
 			<br>
@@ -153,7 +99,8 @@
 									<input class="btn btn-warning" type="button" onclick="location.href='/awp/ServidorGrowtools/views/dashboardHumD1.html';" value="Ver grafica" />
 								</div>	
 								<div style="margin-left: auto;" class="ml-auto p-2">
-									<input  class="btn btn-secondary" type="button" onclick="location.href='';" value="Presets" />
+									<input  class="btn btn-secondary" type="button" id="buttonD1Mode" value="Presets"
+									coilValue="1" onmousedown="cambiarModoOperacionD1('../IOD1Mode.html','buttonD1Mode')" />
 								</div>															
 							</div>							
 						</div>
@@ -288,7 +235,8 @@
 									<input class="btn btn-warning" type="button" onclick="location.href='/awp/ServidorGrowtools/views/dashboardHumD2.html';" value="Ver grafica" />
 								</div>	
 								<div style="margin-left: auto;" class="ml-auto p-2">
-									<input class="btn btn-secondary" type="button" onclick="location.href='';" value="Presets" />
+									<input  class="btn btn-secondary" type="button" id="buttonD2Mode" value="Presets"
+									coilValue="1" onmousedown="cambiarModoOperacionD2('../IOD2Mode.html','buttonD2Mode')" />
 								</div>																	
 							</div>							
 						</div>
@@ -422,7 +370,8 @@
 									<input class="btn btn-warning" type="button" onclick="location.href='/awp/ServidorGrowtools/views/dashboardHumD3.html';" value="Ver grafica" />
 								</div>
 								<div style="margin-left: auto;" class="ml-auto p-2">
-									<input class="btn btn-secondary" type="button" onclick="location.href='';" value="Presets" />
+									<input  class="btn btn-secondary" type="button" id="buttonD3Mode" value="Presets"
+									coilValue="1" onmousedown="cambiarModoOperacionD3('../IOD3Mode.html','buttonD3Mode')" />
 								</div>																		
 							</div>							
 						</div>

@@ -334,6 +334,13 @@ var desactivarDeshidratador1 = function(url, buttonId) {
 	$.post(url,sdata,function(result){});
 }
 
+var cambiarModoOperacionD1 = function(url, buttonId) {
+	name='"Modos_Operacion".Modo_Preset_D1';
+	val=$('input[id='+ buttonId +']').attr('coilValue');
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
 var activarDeshidratador2 = function(url, buttonId) {
 	name='"Activar_Deshidratador2"';
 	val=$('input[id='+ buttonId +']').attr('coilValue');
@@ -348,6 +355,13 @@ var desactivarDeshidratador2 = function(url, buttonId) {
 	$.post(url,sdata,function(result){});
 }
 
+var cambiarModoOperacionD2 = function(url, buttonId) {
+	name='"Modos_Operacion".Modo_Preset_D2';
+	val=$('input[id='+ buttonId +']').attr('coilValue');
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
 var activarDeshidratador3 = function(url, buttonId) {
 	name='"Activar_Deshidratador3"';
 	val=$('input[id='+ buttonId +']').attr('coilValue');
@@ -357,6 +371,13 @@ var activarDeshidratador3 = function(url, buttonId) {
 
 var desactivarDeshidratador3 = function(url, buttonId) {
 	name='"Activar_Deshidratador3"';
+	val=$('input[id='+ buttonId +']').attr('coilValue');
+	sdata=escape(name)+'='+val;
+	$.post(url,sdata,function(result){});
+}
+
+var cambiarModoOperacionD3 = function(url, buttonId) {
+	name='"Modos_Operacion".Modo_Preset_D3';
 	val=$('input[id='+ buttonId +']').attr('coilValue');
 	sdata=escape(name)+'='+val;
 	$.post(url,sdata,function(result){});
@@ -383,7 +404,7 @@ var cargarSetPointHumMidD1 = function(url) {
 	$.post(url,sdata,function(result){});
 }
 
-var cargarSetPointFinalD1 = function(url) {
+var cargarSetPointHumFinalD1 = function(url) {
 	name='"Set_Point_Humedad_D1_Final"';
 	val=$('input[id=setHumD1Final]').val();
 	sdata=escape(name)+'='+val;
@@ -411,7 +432,7 @@ var cargarSetPointHumMidD2 = function(url) {
 	$.post(url,sdata,function(result){});
 }
 
-var cargarSetPointFinalD2 = function(url) {
+var cargarSetPointHumFinalD2 = function(url) {
 	name='"Set_Point_Humedad_D2_Final"';
 	val=$('input[id=setHumD2Final]').val();
 	sdata=escape(name)+'='+val;
@@ -439,7 +460,7 @@ var cargarSetPointHumMidD3 = function(url) {
 	$.post(url,sdata,function(result){});
 }
 
-var cargarSetPointFinalD3 = function(url) {
+var cargarSetPointHumFinalD3 = function(url) {
 	name='"Set_Point_Humedad_D3_Final"';
 	val=$('input[id=setHumD3Final]').val();
 	sdata=escape(name)+'='+val;
