@@ -100,7 +100,7 @@
 								</div>	
 								<div style="margin-left: auto;" class="ml-auto p-2">
 									<input  class="btn btn-secondary" type="button" id="buttonD1Mode" value="Presets"
-									coilValue="1" onmousedown="cambiarModoOperacionD1('../IOD1Mode.html','buttonD1Mode')" />
+									coilValue="1" onmousedown="cambiarModoOperacionD1('../IOD1Mode.html')" />
 								</div>															
 							</div>							
 						</div>
@@ -111,7 +111,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Temperatura Definitiva (C°):
 										<span id="temperaturaDeshidratador1" name="temperaturaDeshidratador1"></span>    	
@@ -123,7 +123,7 @@
 							</div>
 
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Definitiva (%):
 										<span id="humedadDeshidratador1" name="humedadDeshidratador1"></span>    	
@@ -135,7 +135,7 @@
 							</div>
 
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Tiempo Histeresis (min):
 										<span id="hystDeshidratador1" name="hystDeshidratador1"></span>    	
@@ -146,10 +146,10 @@
 								</div>
 							</div>							
 						</div>
-						<div class="panel-heading"><h4>Presets</h4></div>
-						<div class="panel-body">
+						<div id="presetsHeadingD1" class="panel-heading" style="display:none"><h4>Presets</h4></div>
+						<div id="presetsPanelD1" class="panel-body" style="display:none">
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Temperatura Inicial (°C):
 										<span id="temperaturaInicialDeshidratador1" name="temperaturaInicialDeshidratador1"></span>    	
@@ -161,7 +161,7 @@
 							</div>
 
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Inicial (%):
 										<span id="humedadInicialDeshidratador1" name="humedadInicialDeshidratador1"></span>    
@@ -173,7 +173,7 @@
 							</div>
 							<hr class="mt-2 mb-3"/>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Temperatura Intermedia (°C):
 										<span id="temperaturaIntermediaDeshidratador1" name="temperaturaIntermediaDeshidratador1"></span>    	
@@ -184,7 +184,7 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Intermedia (%):
 										<span id="humedadIntermediaDeshidratador1" name="humedadIntermediaDeshidratador1"></span>    	
@@ -196,7 +196,7 @@
 							</div>
 							<hr class="mt-2 mb-3"/>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Temperatura Final (°C):
 										<span id="temperaturaFinalDeshidratador1" name="temperaturaFinalDeshidratador1"></span>
@@ -208,7 +208,7 @@
 							</div>
 
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Final (%):
 										<span id="humedadFinalDeshidratador1" name="humedadFinalDeshidratador1"></span>    	
@@ -236,7 +236,7 @@
 								</div>	
 								<div style="margin-left: auto;" class="ml-auto p-2">
 									<input  class="btn btn-secondary" type="button" id="buttonD2Mode" value="Presets"
-									coilValue="1" onmousedown="cambiarModoOperacionD2('../IOD2Mode.html','buttonD2Mode')" />
+									coilValue="1" onmousedown="cambiarModoOperacionD2('../IOD2Mode.html')" />
 								</div>																	
 							</div>							
 						</div>
@@ -247,7 +247,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Temperatura Definitiva (°C):
 										<span id="temperaturaDeshidratador2" name="temperaturaDeshidratador2"></span>    	
@@ -259,7 +259,7 @@
 							</div>
 
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Definitiva (%): 
 										<span id="humedadDeshidratador2" name="humedadDeshidratador2"></span>    	
@@ -271,7 +271,7 @@
 							</div>
 
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Tiempo Histeresis (min):
 										<span id="hystDeshidratador2" name="hystDeshidratador2"></span>    	
@@ -282,10 +282,10 @@
 								</div>
 							</div>
 						</div>
-						<div class="panel-heading"><h4>Presets</h4></div>
-						<div class="panel-body">
+						<div id="presetsHeadingD2" class="panel-heading" style="display:none"><h4>Presets</h4></div>
+						<div id="presetsPanelD2" class="panel-body" style="display:none">
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Temperatura Inicial (°C):
 										<span id="temperaturaInicialDeshidratador2" name="temperaturaInicialDeshidratador2"></span>    	
@@ -296,7 +296,7 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Inicial (%): 
 										<span id="humedadInicialDeshidratador2" name="humedadInicialDeshidratador2"></span>
@@ -308,7 +308,7 @@
 							</div>
 							<hr class="mt-2 mb-3"/>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Temperatura Intermedia (°C):
 										<span id="temperaturaIntermediaDeshidratador2" name="temperaturaIntermediaDeshidratador2"></span>    	
@@ -320,7 +320,7 @@
 							</div>
 
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Intermedia (%): 
 										<span id="humedadIntermediaDeshidratador2" name="humedadIntermediaDeshidratador2"></span>    	
@@ -332,7 +332,7 @@
 							</div>
 							<hr class="mt-2 mb-3"/>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Temperatura Final (°C):
 										<span id="temperaturaFinalDeshidratador2" name="temperaturaFinalDeshidratador2"></span>    	
@@ -343,7 +343,7 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Final (%): 
 										<span id="humedadFinalDeshidratador2" name="humedadFinalDeshidratador2"></span>    	
@@ -371,7 +371,7 @@
 								</div>
 								<div style="margin-left: auto;" class="ml-auto p-2">
 									<input  class="btn btn-secondary" type="button" id="buttonD3Mode" value="Presets"
-									coilValue="1" onmousedown="cambiarModoOperacionD3('../IOD3Mode.html','buttonD3Mode')" />
+									coilValue="1" onmousedown="cambiarModoOperacionD3('../IOD3Mode.html')" />
 								</div>																		
 							</div>							
 						</div>
@@ -382,7 +382,7 @@
 						</div>
 						<div class="panel-body">
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<h4>Set Point Temperatura Definitiva (°C):
 										<span id="temperaturaDeshidratador3" name="temperaturaDeshidratador3"></span>    	
 									</h4>
@@ -392,7 +392,7 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Definitiva (%):
 										<span id="humedadDeshidratador3" name="humedadDeshidratador3"></span>    	
@@ -403,7 +403,7 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Tiempo Histeresis (min):
 										<span id="hystDeshidratador3" name="hystDeshidratador3"></span>    	
@@ -414,10 +414,10 @@
 								</div>
 							</div>							
 						</div>
-						<div class="panel-heading"><h4>Presets</h4></div>
-						<div class="panel-body">
+						<div id="presetsHeadingD3" class="panel-heading" style="display:none"><h4>Presets</h4></div>
+						<div id="presetsPanelD3" class="panel-body" style="display:none">
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<h4>Set Point Temperatura Inicial (°C):
 										<span id="temperaturaInicialDeshidratador3" name="temperaturaInicialDeshidratador3"></span>    	
 									</h4>
@@ -427,7 +427,7 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Inicial (%):
 										<span id="humedadInicialDeshidratador3" name="humedadInicialDeshidratador3"></span>    	
@@ -439,7 +439,7 @@
 							</div>
 							<hr class="mt-2 mb-3"/>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<h4>Set Point Temperatura Intermedia (°C):
 										<span id="temperaturaIntermediaDeshidratador3" name="temperaturaIntermediaDeshidratador3"></span>    	
 									</h4>
@@ -449,7 +449,7 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Intermedia (%):
 										<span id="humedadIntermediaDeshidratador3" name="humedadIntermediaDeshidratador3"></span>    	
@@ -461,7 +461,7 @@
 							</div>
 							<hr class="mt-2 mb-3"/>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<h4>Set Point Temperatura Final (°C):
 										<span id="temperaturaFinalDeshidratador3" name="temperaturaFinalDeshidratador3"></span>
 									</h4>
@@ -471,7 +471,7 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<div style="display: flex; gap: 3px;">
+								<div style="display: flex; gap: 3px; align-items: center; justify-content: center;">
 									<br>
 									<h4>Set Point Humedad Final (%):
 										<span id="humedadFinalDeshidratador3" name="humedadFinalDeshidratador3"></span>    	

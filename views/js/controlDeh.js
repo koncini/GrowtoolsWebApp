@@ -1,3 +1,6 @@
+let D1Mode = null;
+let D2Mode = null;
+let D3Mode = null;
 
 $(document).ready(function(){
 	$.ajaxSetup({ cache: false }); 
@@ -198,6 +201,15 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$.ajaxSetup({ cache: false }); 
 	setInterval(function() {
+		$.get("../IOD1Mode.html", function(result){
+			D1Mode = result;
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
 		$.get("../IOHumD2InitStatus.html", function(result){
 			$('#humedadInicialDeshidratador2').text(result);
 		});
@@ -234,6 +246,15 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$.ajaxSetup({ cache: false }); 
 	setInterval(function() {
+		$.get("../IOD2Mode.html", function(result){
+			D2Mode = result;
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
 		$.get("../IOHumD3InitStatus.html", function(result){
 			$('#humedadInicialDeshidratador3').text(result);
 		});
@@ -263,6 +284,15 @@ $(document).ready(function(){
 	setInterval(function() {
 		$.get("../IOHumD3Status.html", function(result){
 			$('#humedadDeshidratador3').text(result);
+		});
+	},1000);
+});
+
+$(document).ready(function(){
+	$.ajaxSetup({ cache: false }); 
+	setInterval(function() {
+		$.get("../IOD3Mode.html", function(result){
+			D3Mode = result;
 		});
 	},1000);
 });
@@ -334,9 +364,18 @@ var desactivarDeshidratador1 = function(url, buttonId) {
 	$.post(url,sdata,function(result){});
 }
 
-var cambiarModoOperacionD1 = function(url, buttonId) {
+var cambiarModoOperacionD1 = function(url) {
 	name='"Modos_Operacion".Modo_Preset_D1';
-	val=$('input[id='+ buttonId +']').attr('coilValue');
+	val= D1Mode;
+		if (val == "0"){
+		val = "1";
+		$("#buttonD1Mode").attr('value', 'Fijo');
+	} else{
+		val = "0";
+		$("#buttonD1Mode").attr('value', 'Presets');
+	}
+	$("#presetsHeadingD1").toggle();
+	$("#presetsPanelD1").toggle();
 	sdata=escape(name)+'='+val;
 	$.post(url,sdata,function(result){});
 }
@@ -355,9 +394,18 @@ var desactivarDeshidratador2 = function(url, buttonId) {
 	$.post(url,sdata,function(result){});
 }
 
-var cambiarModoOperacionD2 = function(url, buttonId) {
+var cambiarModoOperacionD2 = function(url) {
 	name='"Modos_Operacion".Modo_Preset_D2';
-	val=$('input[id='+ buttonId +']').attr('coilValue');
+	val= D2Mode;
+	if (val == "0"){
+		val = "1";
+		$("#buttonD2Mode").attr('value', 'Fijo');
+	} else{
+		val = "0";
+		$("#buttonD2Mode").attr('value', 'Presets');
+	}
+	$("#presetsHeadingD2").toggle();
+	$("#presetsPanelD2").toggle();
 	sdata=escape(name)+'='+val;
 	$.post(url,sdata,function(result){});
 }
@@ -376,9 +424,18 @@ var desactivarDeshidratador3 = function(url, buttonId) {
 	$.post(url,sdata,function(result){});
 }
 
-var cambiarModoOperacionD3 = function(url, buttonId) {
+var cambiarModoOperacionD3 = function(url) {
 	name='"Modos_Operacion".Modo_Preset_D3';
-	val=$('input[id='+ buttonId +']').attr('coilValue');
+	val= D3Mode;
+		if (val == "0"){
+		val = "1";
+		$("#buttonD3Mode").attr('value', 'Fijo');
+	} else{
+		val = "0";
+		$("#buttonD3Mode").attr('value', 'Presets');
+	}
+	$("#presetsHeadingD3").toggle();
+	$("#presetsPanelD3").toggle();	
 	sdata=escape(name)+'='+val;
 	$.post(url,sdata,function(result){});
 }
